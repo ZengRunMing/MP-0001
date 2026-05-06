@@ -1,3 +1,137 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1778055272
-icon.svg::CompressedTexture2D::8621271984811072030::1778055267::1778055273::1::::<><><>0<>0<>50915a5eb53cde549ff7599c44894172<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1778468788
+icon.svg::CompressedTexture2D::8621271984811072030::1778055926::1778468788::1::::<><><>0<>0<>50915a5eb53cde549ff7599c44894172<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Nagaisora Framework/::1778422897
+AssemblySystem.cs::CSharpScript::6853934489734684949::1778422897::0::1::::<><><>0<>0<><>::
+AssetBundleHelper.cs::CSharpScript::6688869998789454316::1778422897::0::1::::<><><>0<>0<><>::
+AssetBundleManager.cs::CSharpScript::2367802196471059306::1778422897::0::1::::<><><>0<>0<><>::
+BitArrayBool.cs::CSharpScript::1565412663108679697::1778422897::0::1::::<><><>0<>0<><>::
+BootLoader.cs::CSharpScript::2783608240649031080::1778422897::0::1::::<><><>0<>0<><>::
+Enums.cs::CSharpScript::4076738885108649455::1778422897::0::1::::<><><>0<>0<><>::
+FixedLengthQueue.cs::CSharpScript::2649958989350062153::1778422897::0::1::::<><><>0<>0<><>::
+InputEventHelper.cs::CSharpScript::136435087667984385::1778422897::0::1::::<><><>0<>0<><>::
+InputKey.cs::CSharpScript::737237659850068598::1778422897::0::1::::<><><>0<>0<><>::
+InputSystem.cs::CSharpScript::990467412903424461::1778422897::0::1::::<><><>0<>0<><>::
+KeyConfig.cs::CSharpScript::3923518144059514169::1778422897::0::1::::<><><>0<>0<><>::
+MapDictionary.cs::CSharpScript::7991453933881586710::1778422897::0::1::::<><><>0<>0<><>::
+MemoryMappedViewAccessorStream.cs::CSharpScript::6319877703891286911::1778422897::0::1::::<><><>0<>0<><>::
+NagaisoraDataExport.cs::CSharpScript::5400313220943992613::1778422897::0::1::::<><><>0<>0<><>::
+PoolManager.cs::CSharpScript::6484891136751021198::1778422897::0::1::::<><><>0<>0<><>::
+SerializeSystem.cs::CSharpScript::6715035124892278243::1778422897::0::1::::<><><>0<>0<><>::
+SQLite.cs::CSharpScript::8698700661835482921::1778422897::0::1::::<><><>0<>0<><>::
+ThreadManager.cs::CSharpScript::7211421197492454159::1778422897::0::1::::<><><>0<>0<><>::
+TimeControler.cs::CSharpScript::6134553821348552953::1778422897::0::1::::<><><>0<>0<><>::
+TimeLineSystem.cs::CSharpScript::7355707216710194335::1778422897::0::1::::<><><>0<>0<><>::
+Timer.cs::CSharpScript::8251278089729156295::1778422897::0::1::::<><><>0<>0<><>::
+VariableObject.cs::CSharpScript::1351715843574637191::1778422897::0::1::::<><><>0<>0<><>::
+VariableTable.cs::CSharpScript::2279673701997975324::1778422897::0::1::::<><><>0<>0<><>::
+Watch.cs::CSharpScript::6090022874203363163::1778422897::0::1::::<><><>0<>0<><>::
+WindowsAPI.cs::CSharpScript::8397078941223516482::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/AnimationSystem/::1778422897
+AnimationState.cs::CSharpScript::3509422125869690937::1778422897::0::1::::<><><>0<>0<><>::
+AnimationStateMachine.cs::CSharpScript::29390238356221739::1778422897::0::1::::<><><>0<>0<><>::
+AnimationStateMachineData.cs::CSharpScript::8699125123779694079::1778422897::0::1::::<><><>0<>0<><>::
+AnimationSwitchCondition.cs::CSharpScript::3656269870816144206::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/CoreSystem/::1778422897
+ClockSystem.cs::CSharpScript::7339671696307013155::1778422897::0::1::::<><><>0<>0<><>::
+DataPathHelper.cs::CSharpScript::7750475520086942227::1778422897::0::1::::<><><>0<>0<><>::
+FrameworkMath.cs::CSharpScript::771777828642724792::1778422897::0::1::::<><><>0<>0<><>::
+GlobalData.cs::CSharpScript::6060213992568358092::1778422897::0::1::::<><><>0<>0<><>::
+MainSystem.cs::CSharpScript::8383933778632563599::1778422897::0::1::::<><><>0<>0<><>::
+RandomSystem.cs::CSharpScript::8821270588469154069::1778422897::0::1::::<><><>0<>0<><>::
+StringHelper.cs::CSharpScript::8869906815784800011::1778422897::0::1::::<><><>0<>0<><>::
+SystemControler.cs::CSharpScript::5219808937436267498::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/DataSystem/::1778422897
+ConfigData.cs::CSharpScript::4756742749816667269::1778422897::0::1::::<><><>0<>0<><>::
+DataPathDefine.cs::CSharpScript::8568051613021223682::1778422897::0::1::::<><><>0<>0<><>::
+ImagePackData.cs::CSharpScript::5981331923087097179::1778422897::0::1::::<><><>0<>0<><>::
+MediaPackData.cs::CSharpScript::2390024833836478674::1778422897::0::1::::<><><>0<>0<><>::
+NagaisoraFrameworkData.cs::CSharpScript::5406034395282582700::1778422897::0::1::::<><><>0<>0<><>::
+PlayerData.cs::CSharpScript::5271654993755373390::1778422897::0::1::::<><><>0<>0<><>::
+ReplayData.cs::CSharpScript::2767221874944418365::1778422897::0::1::::<><><>0<>0<><>::
+ScoreData.cs::CSharpScript::9092173888623794770::1778422897::0::1::::<><><>0<>0<><>::
+SpellCardData.cs::CSharpScript::4863008166585099905::1778422897::0::1::::<><><>0<>0<><>::
+StoryData.cs::CSharpScript::1458592130606720865::1778422897::0::1::::<><><>0<>0<><>::
+StoryIllustrationData.cs::CSharpScript::1318573502635735325::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/DiskSystem/::1778422897
+DiskStream.cs::CSharpScript::6420339936193453825::1778422897::0::1::::<><><>0<>0<><>::
+DiskSystemObj.cs::CSharpScript::564428423576256564::1778422897::0::1::::<><><>0<>0<><>::
+IDiskInfo.cs::CSharpScript::2122480379037073382::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/EntityComponentSystem/::1778422897
+Component.cs::CSharpScript::8025532018213308309::1778422897::0::1::::<><><>0<>0<><>::
+ECSControler.cs::CSharpScript::4995463880538199088::1778422897::0::1::::<><><>0<>0<><>::
+IEntity.cs::CSharpScript::5923909475408989601::1778422897::0::1::::<><><>0<>0<><>::
+ISystem.cs::CSharpScript::9062303144170619040::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/FileSystem/::1778422897
+AddressMappedStream.cs::CSharpScript::505946592278697600::1778422897::0::1::::<><><>0<>0<><>::
+FileHelper.cs::CSharpScript::4507802164029302527::1778422897::0::1::::<><><>0<>0<><>::
+NFAT.cs::CSharpScript::1194991023477109286::1778422897::0::1::::<><><>0<>0<><>::
+Partition.cs::CSharpScript::7503039014431145161::1778422897::0::1::::<><><>0<>0<><>::
+RTA.cs::CSharpScript::6181463127403304084::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/LogSystem/::1778422897
+Enums.cs::CSharpScript::8679675928302026630::1778422897::0::1::::<><><>0<>0<><>::
+Log.cs::CSharpScript::3948899973868438490::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/MediaSystem/::1778422897
+AudioControler.cs::CSharpScript::5689858433553403462::1778422897::0::1::::<><><>0<>0<><>::
+BGMControler.cs::CSharpScript::1686495453462329292::1778422897::0::1::::<><><>0<>0<><>::
+BGMControler.tscn::PackedScene::5380432760781698718::1778422897::0::1::::<><><>0<>0<><>::uid://ya7ll1p8rfq7::::res://Nagaisora Framework/MediaSystem/BGMControler.cs<>uid://cnchewqwhej0a::::res://Nagaisora Framework/MediaSystem/AudioControler.cs<>uid://dfak7sagoph43::::res://Nagaisora Framework/MediaSystem/MidiControler.cs
+MidiControler.cs::CSharpScript::7510871530314308906::1778422897::0::1::::<><><>0<>0<><>::
+SoundEffectControler.cs::CSharpScript::5296701706794841171::1778422897::0::1::::<><><>0<>0<><>::
+SoundEffectControler.tscn::PackedScene::759366816313535426::1778422897::0::1::::<><><>0<>0<><>::uid://chp05yfpv5hct::::res://Nagaisora Framework/MediaSystem/SoundEffectControler.cs
+::res://Nagaisora Framework/MediaSystem/DisplayComponment/::1778422897
+MidiPianoChannel.cs::CSharpScript::366853747070169382::1778422897::0::1::::<><><>0<>0<><>::
+MidiPianoContainer.cs::CSharpScript::8906304476232823118::1778422897::0::1::::<><><>0<>0<><>::
+MidiPianoControler.cs::CSharpScript::8930282247463221424::1778422897::0::1::::<><><>0<>0<><>::
+MidiPianoFormViewer.cs::CSharpScript::5626353068005473980::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/NetworkSystem/::1778422897
+N45Protocol.cs::CSharpScript::4897162293829483716::1778422897::0::1::::<><><>0<>0<><>::
+NetworkClient.cs::CSharpScript::6631728725627007632::1778422897::0::1::::<><><>0<>0<><>::
+NetworkServer.cs::CSharpScript::6950322178534994517::1778422897::0::1::::<><><>0<>0<><>::
+NetworkSocket.cs::CSharpScript::6730055390620333752::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/PluginSystem/::1778422897
+IPlugin.cs::CSharpScript::7358823274109455932::1778422897::0::1::::<><><>0<>0<><>::
+PluginInfo.cs::CSharpScript::908760536476561296::1778422897::0::1::::<><><>0<>0<><>::
+Plugins.cs::CSharpScript::8144737431940082451::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/SecuritySystem/::1778422897
+Cryptography.cs::CSharpScript::5644138446533815398::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/STGSystem/::1778422897
+AnimatedSpriteRendererSTGComponent .cs::CSharpScript::4756557232167508412::1778422897::0::1::::<><><>0<>0<><>::
+BendLaserMesh.cs::CSharpScript::3776761423861395657::1778422897::0::1::::<><><>0<>0<><>::
+Boss.cs::CSharpScript::7128931650939410117::1778422897::0::1::::<><><>0<>0<><>::
+Bullet.cs::CSharpScript::9031484962393841891::1778422897::0::1::::<><><>0<>0<><>::
+Condition.cs::CSharpScript::1743059899559774860::1778422897::0::1::::<><><>0<>0<><>::
+ECLData.cs::CSharpScript::5883345582542125362::1778422897::0::1::::<><><>0<>0<><>::
+Enemy.cs::CSharpScript::1311927832889760529::1778422897::0::1::::<><><>0<>0<><>::
+EnemyBullet.cs::CSharpScript::7126705551861104989::1778422897::0::1::::<><><>0<>0<><>::
+EnemyBulletMontage.cs::CSharpScript::1453162717755636843::1778422897::0::1::::<><><>0<>0<><>::
+EnemyShootEffect.cs::CSharpScript::63432952196094917::1778422897::0::1::::<><><>0<>0<><>::
+ExecuteSystem.cs::CSharpScript::7796322111713503699::1778422897::0::1::::<><><>0<>0<><>::
+GenericFunction.cs::CSharpScript::5452266565399488900::1778422897::0::1::::<><><>0<>0<><>::
+Laser.cs::CSharpScript::2000419225190176110::1778422897::0::1::::<><><>0<>0<><>::
+NFEProgram.cs::CSharpScript::7321496449608893069::1778422897::0::1::::<><><>0<>0<><>::
+ParticleSystemEffect.cs::CSharpScript::9191900304332999260::1778422897::0::1::::<><><>0<>0<><>::
+ParticleSystemSTGComponent.cs::CSharpScript::4189570262993171313::1778422897::0::1::::<><><>0<>0<><>::
+Player.cs::CSharpScript::3827544022153660812::1778422897::0::1::::<><><>0<>0<><>::
+PlayerBullet.cs::CSharpScript::2794671985753496690::1778422897::0::1::::<><><>0<>0<><>::
+ReplaySystem.cs::CSharpScript::7709583453480751384::1778422897::0::1::::<><><>0<>0<><>::
+SpellCard.cs::CSharpScript::7426518494389595944::1778422897::0::1::::<><><>0<>0<><>::
+SpellCardTitle.cs::CSharpScript::4375173497100924917::1778422897::0::1::::<><><>0<>0<><>::
+SpriteRenderComponent.cs::CSharpScript::7934527569907122532::1778422897::0::1::::<><><>0<>0<><>::
+STGControler.cs::CSharpScript::6472376068868631490::1778422897::0::1::::<><><>0<>0<><>::
+STGControlerTimeLineControler.cs::CSharpScript::9095940365886282927::1778422897::0::1::::<><><>0<>0<><>::
+STGEntity.cs::CSharpScript::5880159349748048114::1778422897::0::1::::<><><>0<>0<><>::
+STGSystemData.cs::CSharpScript::1466760443417914012::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/STGSystem/ECSComponent/::1778422897
+CollisionCheck.cs::CSharpScript::5251887619608841105::1778422897::0::1::::<><><>0<>0<><>::
+DetermineData.cs::CSharpScript::292185103209133530::1778422897::0::1::::<><><>0<>0<><>::
+MoveControl.cs::CSharpScript::4638179393951441638::1778422897::0::1::::<><><>0<>0<><>::
+STGComponent.cs::CSharpScript::5425974131074518659::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/STGSystem/ECSystem/::1778422897
+CollisionCheckSystem.cs::CSharpScript::1045171992208774045::1778422897::0::1::::<><><>0<>0<><>::
+MoveControlSystem.cs::CSharpScript::7582801183236480797::1778422897::0::1::::<><><>0<>0<><>::
+::res://Nagaisora Framework/StorySytem/::1778422897
+StoryBalloon.cs::CSharpScript::333515321842141711::1778422897::0::1::::<><><>0<>0<><>::
+StoryControl.cs::CSharpScript::4911612464325889081::1778422897::0::1::::<><><>0<>0<><>::
+StoryIllustrationBox.cs::CSharpScript::6385533488516484246::1778422897::0::1::::<><><>0<>0<><>::
+StoryIllustrationControl.cs::CSharpScript::8037208407933368689::1778422897::0::1::::<><><>0<>0<><>::
+StoryTextViewer.cs::CSharpScript::2906920930873001542::1778422897::0::1::::<><><>0<>0<><>::
