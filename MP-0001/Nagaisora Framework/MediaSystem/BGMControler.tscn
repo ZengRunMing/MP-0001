@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ciwk7al5kaw6i"]
+
+[ext_resource type="Script" uid="uid://ya7ll1p8rfq7" path="res://Nagaisora Framework/MediaSystem/BGMControler.cs" id="1_fynqf"]
+[ext_resource type="Script" uid="uid://cnchewqwhej0a" path="res://Nagaisora Framework/MediaSystem/AudioControler.cs" id="2_xdel3"]
+[ext_resource type="Script" uid="uid://dfak7sagoph43" path="res://Nagaisora Framework/MediaSystem/MidiControler.cs" id="3_lsxhw"]
+
+[node name="BGMControler" type="Node" unique_id=146337889 node_paths=PackedStringArray("AudioControler", "MidiControler")]
+script = ExtResource("1_fynqf")
+AudioControler = NodePath("AudioControler")
+MidiControler = NodePath("MidiControler")
+metadata/_custom_type_script = "uid://ya7ll1p8rfq7"
+
+[node name="AudioControler" type="AudioStreamPlayer" parent="." unique_id=1093830754]
+script = ExtResource("2_xdel3")
+Volume = 1.0
+ExitVolumeOffset = 0.01
+metadata/_custom_type_script = "uid://cnchewqwhej0a"
+
+[node name="MidiControler" type="Node" parent="." unique_id=1750888891]
+script = ExtResource("3_lsxhw")
+metadata/_custom_type_script = "uid://dfak7sagoph43"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://k23wptcnlo8a"]
+
+[ext_resource type="Script" uid="uid://chp05yfpv5hct" path="res://Nagaisora Framework/MediaSystem/SoundEffectControler.cs" id="1_d3wv6"]
+
+[node name="SoundEffectControler" type="Node" unique_id=2085120097]
+script = ExtResource("1_d3wv6")
+metadata/_custom_type_script = "uid://chp05yfpv5hct"
