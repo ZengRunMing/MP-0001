@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -17,7 +17,7 @@ namespace NagaisoraFramework
 		public Action OnLeave;
 	}
 
-	[Serializable]
+
 	public class TimeLineSystem : TimeControler
 	{
 		public Dictionary<string, TimeLineFlag> Flags;

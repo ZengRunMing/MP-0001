@@ -52,7 +52,7 @@ namespace NagaisoraFramework.STGSystem
 					InputKey.FromBinary(DownKeys);
 				}
 
-				STGControler.CallKeyDown(InputKey);
+				STGControler.InputSystem.KeyDownEventCall(InputKey);
 			}
 		}
 

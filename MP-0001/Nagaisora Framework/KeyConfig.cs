@@ -1,12 +1,7 @@
-using System;
-using System.IO;
-using System.Text;
-
 using Godot;
 
 namespace NagaisoraFramework
 {
-	[Serializable]
 	public class KeyConfig
 	{
 		public InputEvent Up;
@@ -23,7 +18,6 @@ namespace NagaisoraFramework
 		public InputEvent J_Slow;
 		public InputEvent J_Skip;
 		public InputEvent J_Escape;
-
 
 		public static readonly KeyConfig Default = new()
 		{

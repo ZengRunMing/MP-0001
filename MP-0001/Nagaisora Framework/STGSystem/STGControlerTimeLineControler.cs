@@ -3,7 +3,7 @@
 
 //namespace NagaisoraFramework.STGSystem
 //{
-//	[Serializable]
+//
 //	public class STGControlerTimeLineControler : TimeLineControler
 //	{
 //		public STGControler STGControler;

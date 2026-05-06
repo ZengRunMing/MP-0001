@@ -2,59 +2,65 @@ using Godot;
 
 namespace NagaisoraFramework.STGSystem.ECSystem
 {
-	using EntityComponentSystem;
 	using ECSComponent;
+	using EntityComponentSystem;
 
 	public class CollisionCheckSystem : ISystem<CollisionCheck>
 	{
 		public void Execute(CollisionCheck component)
 		{
-			STGEntity baseSTGEntity = component.BaseSTGEntity;
-			STGEntity targetSTGEntity = component.TargetSTGEntity;
+			int i = 0;
 
-			float baseDetermineRadius = component.BaseEntityDetermineRadius.Radius;
-			float targetDetermineRadius = component.TargetEntityDetermineRadius.Radius;
+			foreach (bool collision in component.IsCollision)
+			{
+				if (collision)
+				{
+					component.Action?.Invoke(component.TargetSTGEntitys[i]);
+				}
 
-			component.IsCollision = CollisionCheck(baseSTGEntity, targetSTGEntity, baseDetermineRadius, targetDetermineRadius);
+				i++;
+			}
+		}
+
+		public void SubThreadExecute(CollisionCheck component)
+		{
+			if (component.BaseSTGEntity.Disabled) return;
+
+			for (int i = 0; i < component.TargetSTGEntitys.Count; i++)
+			{
+				if (component.m_TargetSTGEntitys[i].Disabled) return;
+
+				Transform targetTransform = component.TargetEntityTransforms[i];
+				DetermineData targetDetermineData = component.TargetEntityDetermineDatas[i];
+
+				component.IsCollision[i] = CollisionCheck(component.BaseEntityTransform, targetTransform, component.BaseEntityDetermineData, targetDetermineData, component.Scale);
+			}
 		}
 
 		/// <summary>
 		/// 检查是否与指定的STGComponment产生碰撞，指定判定半径，以及是否加入缩放影响，加入缩放影响即将判定半径乘以组件的缩放值，适用于需要根据组件的缩放来调整碰撞范围的情况，例如当组件被放大时碰撞范围也应该相应增大
 		/// </summary>
-		/// <param name="baseSTGEntity">自身实体</param>
-		/// <param name="targetSTGEntity">目标实体</param>
-		/// <param name="baseDetermineRadius">自身判定半径</param>
-		/// <param name="targetDetermineRadius">目标判定半径</param>
-		/// <param name="scale">是否加入缩放影响, 默认为True</param>
 		/// <returns>返回一个Boolean值, 为True则满足碰撞条件</returns>
-		public static bool CollisionCheck(STGEntity baseSTGEntity, STGEntity targetSTGEntity, float baseDetermineRadius, float targetDetermineRadius, bool scale = true)
+		public static bool CollisionCheck(Transform baseTransform, Transform targetTransform, DetermineData baseDetermineData, DetermineData targetDetermineData, bool scale = true)
 		{
-			if (baseSTGEntity is null || baseSTGEntity.Disabled || targetSTGEntity is null || targetSTGEntity.Disabled)
+			float f = baseDetermineData.DetermineRadius + targetDetermineData.DetermineRadius * (scale ? baseTransform.Scale + targetTransform.Scale : 1f);
+
+			float baseRotation = FrameworkMath.EulerAnglesADS(baseTransform.Rotation.Z);
+			Vector2 baseOffset = baseDetermineData.DetermineOffset * new Vector2(FrameworkMath.Sin(baseRotation), FrameworkMath.Cos(baseRotation));
+
+			float targetRotation = FrameworkMath.EulerAnglesADS(targetTransform.Rotation.Z);
+			Vector2 targetOffset = targetDetermineData.DetermineOffset * new Vector2(FrameworkMath.Sin(targetRotation), FrameworkMath.Cos(targetRotation));
+
+			Vector2 cacule = (baseTransform.Position - targetTransform.Position) - (baseOffset - targetOffset);
+			Vector2 AbsCacule = new(Mathf.Abs(cacule.X), Mathf.Abs(cacule.Y));
+
+			if (baseTransform.OriginalScale.X != baseTransform.OriginalScale.Y)
 			{
-				return false;
-			}
+				float angle = Mathf.Atan2(cacule.Y, cacule.X) * 57.29578f - baseTransform.Rotation.Z - 90f;
+				float adsAngle = FrameworkMath.EulerAnglesADS(angle);
 
-			if (baseDetermineRadius <= 0f || targetDetermineRadius <= 0f)
-			{
-				return false;
-			}
-
-			float f = baseDetermineRadius + targetDetermineRadius * (scale ? baseSTGEntity.Scale + targetSTGEntity.Scale : 1f);
-
-			float rads = FrameworkMath.EulerAnglesADS(baseSTGEntity.RotationZ);
-
-			float dx = baseSTGEntity.Position.X - targetSTGEntity.Position.X - (baseSTGEntity.DetermineOffset.X * FrameworkMath.Sin(rads));
-			float dy = baseSTGEntity.Position.Y - targetSTGEntity.Position.Y - (baseSTGEntity.DetermineOffset.Y * FrameworkMath.Cos(rads));
-
-			float adx = Mathf.Abs(dx);
-			float ady = Mathf.Abs(dy);
-
-			if (baseSTGEntity.OriginalScale.X != baseSTGEntity.OriginalScale.Y)
-			{
-				float EADS_Angle = Mathf.Atan2(dy, dx) * 57.29578f - baseSTGEntity.RotationZ - 90f;
-				float EADS = FrameworkMath.EulerAnglesADS(EADS_Angle);
-				float num1 = Mathf.Pow(dx * dx + dy * dy, 0.5f) * FrameworkMath.Cos(EADS);
-				float num2 = Mathf.Pow(dx * dx + dy * dy, 0.5f) * FrameworkMath.Sin(EADS);
+				float num1 = Mathf.Pow(cacule.X * cacule.X + cacule.Y * cacule.Y, 0.5f) * FrameworkMath.Cos(adsAngle);
+				float num2 = Mathf.Pow(cacule.X * cacule.X + cacule.Y * cacule.Y, 0.5f) * FrameworkMath.Sin(adsAngle);
 				if (num1 / f * (num1 / f) + num2 / f * (num2 / f) < 1f)
 				{
 					return true;
@@ -62,7 +68,7 @@ namespace NagaisoraFramework.STGSystem.ECSystem
 			}
 			else
 			{
-				if (ady < f && adx < f && f * f > dy * dy + dx * dx)
+				if (AbsCacule.Y < f && AbsCacule.X < f && f * f > cacule.Y * cacule.Y + cacule.X * cacule.X)
 				{
 					return true;
 				}

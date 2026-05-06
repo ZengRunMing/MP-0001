@@ -11,13 +11,10 @@ namespace NagaisoraFramework.STGSystem
 	using ECSystem;
 
 	[GlobalClass]
-	[Serializable]
+
 	public partial class STGControler : Node3D, IDisposable
 	{
 		public ECSControler<STGComponent> ECSControler;
-
-		public delegate void KeyDownEvent(InputKey inputKey);
-		public event KeyDownEvent KeyDown;
 
 		[ExportGroup("渲染组件")]
 		[ExportSubgroup("视口组件")]
@@ -282,29 +279,23 @@ namespace NagaisoraFramework.STGSystem
 			//PlayerBullets = [];
 			//Effects = [];
 
-			// 新建动作录像系统及注册本地按键事件
+			// 新建动作录像系统及注册输入系统按键事件
 			ReplaySystem = new(this);
-			KeyDown += ReplaySystem.PushKey;
+			InputSystem.KeyDown += ReplaySystem.PushKey;
 
 			// 注册局部时钟信号事件
 			ClockSystem.FixedUpdate += FixedUpdate;
 			ClockSystem.Update += Update;
-
-			//向InputSystem注册本地按键事件
-			InputSystem.KeyDown += CallKeyDown;
 		}
 
 		public new virtual void Dispose()
 		{
-			// 注销输入系统按键事件
-			InputSystem.KeyDown -= CallKeyDown;
+			// 注销按键事件
+			InputSystem.KeyDown -= ReplaySystem.PushKey;
 
 			// 注销时钟事件
 			ClockSystem.FixedUpdate -= FixedUpdate;
 			ClockSystem.Update -= Update;
-
-			// 注销按键事件
-			KeyDown -= ReplaySystem.PushKey;
 
 			// 销毁动作录像系统
 			ReplaySystem.Dispose();
@@ -421,11 +412,6 @@ namespace NagaisoraFramework.STGSystem
 			ClockSystem.Stop();
 		}
 
-		public virtual void CallKeyDown(InputKey inputKey)
-		{
-			KeyDown?.Invoke(inputKey);
-		}
-
 		public Timer RegisterTimer(TimeSpan setTime, Action executeAction)
 		{
 			Timer timer = new()
@@ -478,14 +464,14 @@ namespace NagaisoraFramework.STGSystem
 			SpellCards.Remove(name);
 		}
 
-		public void RegisterKeyEvent(STGEntity component)
+		public void RegisterKeyEvent(KeyDownEvent @event)
 		{
-			InputSystem.KeyDown += component.OnKeyDown;
+			InputSystem.KeyDown += @event;
 		}
 
-		public void UnRegisterKeyEvent(STGEntity component)
+		public void UnRegisterKeyEvent(KeyDownEvent @event)
 		{
-			InputSystem.KeyDown -= component.OnKeyDown;
+			InputSystem.KeyDown -= @event;
 		}
 
 		public T NewEntity<T>(string name) where T : STGEntity, new()

@@ -1,12 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace NagaisoraFramework.DataSystem
 {
-	[Serializable]
 	public struct ReplayData
 	{
 		public const string DataHead = "NRPY";
@@ -238,7 +234,7 @@ namespace NagaisoraFramework.DataSystem
 		}
 	}
 
-	[Serializable]
+
 	public class StageReplayData
 	{
 		public int ActionDatasCount => ActionDatas.Count;
@@ -296,7 +292,7 @@ namespace NagaisoraFramework.DataSystem
 		}
 	}
 
-	[Serializable]
+
 	public class ReplayActionData
 	{
 		public uint GameTime;

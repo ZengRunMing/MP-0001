@@ -1,13 +1,10 @@
 using System;
-using System.IO;
-using System.Text;
 using System.Collections.Generic;
 
 using Godot;
 
 namespace NagaisoraFramework.DataSystem
 {
-    using MediaSystem;
 	using System.Collections;
 
 	public class SoundEffectDataPack
@@ -102,7 +99,7 @@ namespace NagaisoraFramework.DataSystem
 		}
 	}
 
-	[Serializable]
+
     public class WaveBGMData : IBGMData
     {
         public override string Name { get; set; } = "";
@@ -211,7 +208,7 @@ namespace NagaisoraFramework.DataSystem
 		}
 	}
 
-	[Serializable]
+
     public class MidiBGMData : IBGMData
     {
         public override string Name { get; set; } = "";

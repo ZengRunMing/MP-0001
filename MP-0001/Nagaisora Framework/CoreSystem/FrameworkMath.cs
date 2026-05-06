@@ -1,4 +1,5 @@
 using Godot;
+using NagaisoraFramework.STGSystem;
 using System;
 
 namespace NagaisoraFramework
@@ -109,7 +110,7 @@ namespace NagaisoraFramework
 		#region Distances
 		public static float Distance(Vector2 p1, Vector2 p2)
 		{
-			return Mathf.Sqrt((p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y));
+			return (p1 - p2).Length();
 		}
 
 		public static float DistanceLine(Vector2 a, Vector2 b, Vector2 c)
@@ -129,6 +130,11 @@ namespace NagaisoraFramework
 			num /= num2;
 			Vector2 p = a + num * vector;
 			return Distance(c, p);
+		}
+
+		public static float Direction(Vector2 basePosition, Vector2 targetPosition)
+		{
+			return (float)Math.PI + Mathf.Atan2(basePosition.X - targetPosition.X, basePosition.Y - targetPosition.Y);
 		}
 
 		public static Vector2 Point2lineVerticalPointPosition(Vector2 m, Vector2 a, Vector2 b)

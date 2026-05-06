@@ -5,7 +5,7 @@ using Godot;
 namespace NagaisoraFramework.STGSystem
 {
 	[GlobalClass]
-	[Serializable]
+
 	public partial class EnemyBullet : Bullet
 	{
 		public float GrazeRadiusOffset;

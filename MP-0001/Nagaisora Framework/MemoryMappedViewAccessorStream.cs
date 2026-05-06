@@ -1,10 +1,7 @@
-﻿using System;
-using System.IO;
 using System.IO.MemoryMappedFiles;
 
 namespace NagaisoraFramework
 {
-	[Serializable]
 	public class MemoryMappedViewAccessorStream
 	{
 		public MemoryMappedViewAccessor ViewAccessor;

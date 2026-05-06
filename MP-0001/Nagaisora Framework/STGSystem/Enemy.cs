@@ -4,30 +4,9 @@ using System;
 namespace NagaisoraFramework.STGSystem
 {
 	[GlobalClass]
-	[Serializable]
-	public partial class Enemy : AnimatedSpriteRendererSTGComponent
+
+	public partial class Enemy : STGEntity
 	{
-		[Export]
-		public float HealthValue
-		{
-			get
-			{
-				return m_HealthValue;
-			}
-			set
-			{
-				m_HealthValue = value;
-
-				if (HealthValue < 0f)
-				{
-					//Delete_Effect = true;
-					BaseDelete();
-				}
-			}
-		}
-
-		protected float m_HealthValue = 1f;
-
 		public override void Init()
 		{
 			base.Init();
@@ -72,11 +51,6 @@ namespace NagaisoraFramework.STGSystem
 			//}
 		}
 
-		public void OnDamage(float damageValue)
-		{
-			HealthValue -= damageValue;
-		}
-
 		public override void BaseDelete()
 		{
 			//if (Delete_Effect)
@@ -90,35 +64,35 @@ namespace NagaisoraFramework.STGSystem
 
 		public virtual void SetAnimatorNormal()
 		{
-			if (AnimatedSpriteRenderer is null)
-			{
-				return;
-			}
+			//if (AnimatedSpriteRenderer is null)
+			//{
+			//	return;
+			//}
 
-			AnimationName = "Normal";
-			FlipX = false;
+			//AnimationName = "Normal";
+			//FlipX = false;
 		}
 
 		public virtual void SetAnimatorMoveLeft()
 		{
-			if (AnimatedSpriteRenderer is null)
-			{
-				return;
-			}
+			//if (AnimatedSpriteRenderer is null)
+			//{
+			//	return;
+			//}
 
-			AnimationName = "ToMove";
-			FlipX = true;
+			//AnimationName = "ToMove";
+			//FlipX = true;
 		}
 
 		public virtual void SetAnimatorMoveRight()
 		{
-			if (AnimatedSpriteRenderer is null)
-			{
-				return;
-			}
+			//if (AnimatedSpriteRenderer is null)
+			//{
+			//	return;
+			//}
 
-			AnimationName = "ToMove";
-			FlipX = true;
+			//AnimationName = "ToMove";
+			//FlipX = true;
 		}
 	}
 }

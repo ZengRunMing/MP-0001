@@ -13,7 +13,6 @@ namespace NagaisoraFramework
 
 		public InputKey InputKey;
 
-		public delegate void KeyDownEvent(InputKey inputKey);
 		public event KeyDownEvent KeyDown;
 
 		public InputSystem(KeyConfig keyConfig, string name = "Global")
@@ -113,7 +112,12 @@ namespace NagaisoraFramework
 				InputKey.Slow = true;
 			}
 
-			KeyDown?.Invoke(InputKey);
+			KeyDownEventCall(InputKey);
+		}
+
+		public void KeyDownEventCall(InputKey inputKey)
+		{
+			KeyDown?.Invoke(inputKey);
 		}
 	}
 }

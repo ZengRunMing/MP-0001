@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Text;
 
 using Godot;
 
@@ -8,7 +6,6 @@ namespace NagaisoraFramework.DataSystem
 {
 	using SecuritySystem;
 
-	[Serializable]
 	public struct ScoreData
 	{
 		public static ScoreData Default => GetDefault();

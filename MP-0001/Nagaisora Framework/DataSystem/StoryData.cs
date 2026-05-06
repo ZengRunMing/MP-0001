@@ -1,4 +1,4 @@
-﻿//using System;
+//using System;
 //using System.Collections.Generic;
 //using UnityEngine;
 //using UnityEngine.UI;
@@ -10,7 +10,7 @@
 //		Scense = 1,
 //	}
 
-//	[Serializable]
+//
 //	public class StoryData : NagaisoraFrameworkData
 //	{
 //		public const string DataHead = "NSTD";
@@ -28,7 +28,7 @@
 //		}
 //	}
 
-//	[Serializable]
+//
 //	public struct FaceImageInfo
 //	{
 //		public string Name;
@@ -36,21 +36,21 @@
 //		public Sprite Image;
 //	}
 
-//	[Serializable]
+//
 //	public struct SceneInfo
 //	{
 //		public string SceneName;
 //		public Image SceneImage;
 //	}
 
-//	[Serializable]
+//
 //	public class StoryProgram
 //	{
 //		public string ProgramName;
 //		public List<StoryProgramStep> ProgramSteps;
 //	}
 
-//	[Serializable]
+//
 //	public class StoryProgramStep
 //	{
 //		public List<StoryProgramAction> Actions;
@@ -74,7 +74,7 @@
 //		}
 //	}
 
-//	[Serializable]
+//
 //	public class StoryProgramAction
 //	{
 //		public uint Command;

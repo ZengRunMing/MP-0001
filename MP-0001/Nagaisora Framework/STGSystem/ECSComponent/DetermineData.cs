@@ -35,7 +35,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 
 			return true;
 		}
-
+		
 		public override Array<Dictionary> _GetPropertyList()
 		{
 			return

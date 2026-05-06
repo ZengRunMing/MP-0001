@@ -24,6 +24,15 @@ namespace NagaisoraFramework.MediaSystem
 
 		public bool MidiIsPlaying => MidiControler.Playback != null && MidiControler.Playback.IsRunning;
 
+		public BGMControler()
+		{
+			AudioControler = new();
+			MidiControler = new();
+
+			AddChild(AudioControler);
+			AddChild(MidiControler);
+		}
+
 		public WaveBGMData SelectWaveBGMDataOfIndex(int index)
 		{
 			WaveIndex = index;

@@ -22,7 +22,7 @@
 //		}
 //	}
 
-//	[Serializable]
+//
 //	public struct PlayerInfo
 //	{
 //		public int Type;
@@ -36,7 +36,7 @@
 //		public PlayerBulletInfo[] PlayerBullet;
 //	}
 
-//	[Serializable]
+//
 //	public struct PlayerBulletInfo
 //	{
 //		public int Type;
@@ -47,7 +47,7 @@
 //		public float DetermineRadius;
 //	}
 
-//	[Serializable]
+//
 //	public struct EnemyInfo
 //	{
 //		public int Type;
@@ -58,7 +58,7 @@
 //		public EnemyObject[] Info;
 //	}
 
-//	[Serializable]
+//
 //	public struct EnemyBulletInfo
 //	{
 //		public int Type;
@@ -69,7 +69,7 @@
 //		public BulletObject[] Info;
 //	}
 
-//	[Serializable]
+//
 //	public struct EnemyLongLaserInfo
 //	{
 //		public Vector2 Normoal_Size;
@@ -77,21 +77,21 @@
 //		public BulletObject[] Info;
 //	}
 
-//	[Serializable]
+//
 //	public struct BulletObject
 //	{
 //		public int Color;
 //		public Sprite Sprite;
 //	}
 
-//	[Serializable]
+//
 //	public struct EnemyObject
 //	{
 //		public int Color;
 //		public RuntimeAnimatorController AnimatorController;
 //	}
 
-//	[Serializable]
+//
 //	public struct StageInfo
 //	{
 //		public int ID;

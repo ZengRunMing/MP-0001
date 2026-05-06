@@ -1,11 +1,8 @@
 using System;
-using System.IO;
-using System.Text;
 using System.Collections.Generic;
 
 namespace NagaisoraFramework.DataSystem
 {
-	[Serializable]
 	public struct PlayerData(TimeSpan totalplayertime, int playerindex, int clearindex, PlayerDataItem[,] playerDatas)
 	{
 		public static int BinaryLength => 32 + (MainSystem.PlayerCount * MainSystem.RankCount * PlayerDataItem.BinaryLength);
@@ -140,7 +137,7 @@ namespace NagaisoraFramework.DataSystem
 		public override string ToString() => base.ToString();
 	}
 
-	[Serializable]
+
 	public struct PlayerDataItem(TimeSpan totalPlayedTime, uint playedCount, uint clearanceCount, PlayerDataScoreItem[] scoreItems, SpellCardGetItem[] spellCardGetItems)
 	{
 		public const int BinaryLength = 1024;
@@ -224,7 +221,7 @@ namespace NagaisoraFramework.DataSystem
 		}
 	}
 
-	[Serializable]
+
 	public struct PlayerDataScoreItem
 	{
 		public const int BinaryLength = 32;
@@ -309,7 +306,7 @@ namespace NagaisoraFramework.DataSystem
 		}
 	}
 
-	[Serializable]
+
 	public struct SpellCardGetItem
 	{
 		public const int BinaryLength = 8;

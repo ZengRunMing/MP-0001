@@ -5,7 +5,6 @@ using System;
 
 namespace NagaisoraFramework.DataSystem
 {
-	[Serializable]
 	public struct ConfigData
 	{
 		public const string DataHead = "NCFG";

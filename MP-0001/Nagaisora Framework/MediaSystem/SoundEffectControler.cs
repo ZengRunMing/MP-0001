@@ -112,7 +112,7 @@ namespace NagaisoraFramework.MediaSystem
 		}
 	}
 
-	[Serializable]
+
 	public struct SoundEffectData
 	{
 		public SEType SEType;

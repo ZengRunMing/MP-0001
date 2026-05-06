@@ -1,10 +1,12 @@
 using Godot;
 using Godot.Collections;
 
+using System;
+
 namespace NagaisoraFramework.STGSystem.ECSComponent
 {
 	[GlobalClass, Tool]
-	public partial class CollisionCheck : STGComponent
+	public partial class CollisionCheck(Action<STGEntity> action) : STGComponent
 	{
 		public new STGEntity BaseSTGEntity
 		{
@@ -12,34 +14,49 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 			set
 			{
 				base.BaseSTGEntity = value;
-				BaseEntityDetermineRadius = base.BaseSTGEntity.GetComponent<DetermineData>();
+				BaseEntityDetermineData = base.BaseSTGEntity.GetComponent<DetermineData>();
+				BaseEntityTransform = base.BaseSTGEntity.GetComponent<Transform>();
 			}
 		}
 
-		public STGEntity TargetSTGEntity
+		public Array<STGEntity> TargetSTGEntitys
 		{
-			get => m_TargetEntity;
+			get => m_TargetSTGEntitys;
 			set
 			{
-				m_TargetEntity = value;
-				TargetEntityDetermineRadius = m_TargetEntity.GetComponent<DetermineData>();
+				m_TargetSTGEntitys = value;
+
+				TargetEntityDetermineDatas.Clear();
+				TargetEntityTransforms.Clear();
+
+				foreach (STGEntity entity in m_TargetSTGEntitys)
+				{
+					TargetEntityDetermineDatas.Add(entity.GetComponent<DetermineData>());
+					TargetEntityTransforms.Add(entity.GetComponent<Transform>());
+				}
 			}
 		}
 
-		public bool IsCollision { get; set; }
+		public bool Scale;
 
-		public STGEntity m_TargetEntity;
+		public Array<bool> IsCollision = [];
+
+		public Array<STGEntity> m_TargetSTGEntitys = [];
 		
+		public DetermineData BaseEntityDetermineData;
+		public Transform BaseEntityTransform;
 
-		public DetermineData BaseEntityDetermineRadius;
-		public DetermineData TargetEntityDetermineRadius;
+		public Array<DetermineData> TargetEntityDetermineDatas = [];
+		public Array<Transform> TargetEntityTransforms = [];
+
+		public Action<STGEntity> Action = action;
 
 		public override Variant _Get(StringName property)
 		{
 			return (string)property switch
 			{
-				nameof(TargetSTGEntity) => (Variant)(TargetSTGEntity ?? default),
-				nameof(IsCollision) => (Variant)IsCollision,
+				nameof(TargetSTGEntitys) => (Variant)(TargetSTGEntitys ?? default),
+				nameof(Scale) => (Variant)Scale,
 				_ => default,
 			};
 		}
@@ -48,11 +65,11 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 		{
 			switch (property)
 			{
-				case nameof(TargetSTGEntity):
-					TargetSTGEntity = (STGEntity)Window.GetFocusedWindow().GetNode(value.AsNodePath());
+				case nameof(TargetSTGEntitys):
+					TargetSTGEntitys = value.AsGodotArray<STGEntity>();
 					break;
-				case nameof(IsCollision):
-					IsCollision = value.AsBool();
+				case nameof(Scale):
+					Scale = value.AsBool();
 					break;
 				default:
 					return false;
@@ -67,12 +84,12 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 			[
 				new()
 				{
-					{ "name", nameof(TargetSTGEntity) },
-					{ "type", (int)Variant.Type.NodePath },
+					{ "name", nameof(TargetSTGEntitys) },
+					{ "type", (int)Variant.Type.Array },
 				},
 				new()
 				{
-					{ "name", nameof(IsCollision) },
+					{ "name", nameof(Scale) },
 					{ "type", (int)Variant.Type.Bool },
 				}
 			];
