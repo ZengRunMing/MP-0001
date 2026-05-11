@@ -46,11 +46,11 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 
 		public string SpriteRendererName = "SpriteRenderer";
 
-		public override void Initialize()
+		public SpriteRenderer()
 		{
 			if (Sprite3D is null)
 			{
-				Sprite3D = BaseSTGEntity.GetNodeOrNull<Sprite3D>(SpriteRendererName);
+				Sprite3D = BaseEntity.GetNodeOrNull<Sprite3D>(SpriteRendererName);
 
 				if (Sprite3D is null)
 				{
@@ -60,14 +60,14 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 						Layers = 2
 					};
 
-					BaseSTGEntity.AddChild(Sprite3D);
+					BaseEntity.AddChild(Sprite3D);
 				}
 			}
 		}
 
 		public override void Dispose()
 		{
-			BaseSTGEntity.RemoveChild(Sprite3D);
+			BaseEntity.RemoveChild(Sprite3D);
 		}
 
 		public override Variant _Get(StringName property)
@@ -84,7 +84,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 		{
 			if (property == nameof(Sprite3D))
 			{
-				//SpriteRenderer = BaseSTGEntity.GetNodeOrNull<Sprite3D>(value.AsNodePath());
+				//SpriteRenderer = BaseEntity.GetNodeOrNull<Sprite3D>(value.AsNodePath());
 				return true;
 			}
 

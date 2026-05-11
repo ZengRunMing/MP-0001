@@ -18,7 +18,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 		[ExportToolButton("Save")]
 		public Callable SaveButton => Callable.From(Save);
 
-		public ParticleSystem(STGControler controler, STGEntity entity, int particleSystemCount) : base(controler, entity)
+		public ParticleSystem(int particleSystemCount)
 		{
 			for (int i = 0; i < particleSystemCount; i++)
 			{
@@ -28,7 +28,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 				};
 
 				ParticleSystems.Add(gpuParticles3D);
-				BaseSTGEntity.AddChild(gpuParticles3D);
+				BaseEntity.AddChild(gpuParticles3D);
 			}
 		}
 

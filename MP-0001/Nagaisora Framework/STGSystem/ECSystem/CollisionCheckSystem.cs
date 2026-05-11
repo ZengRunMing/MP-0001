@@ -15,7 +15,7 @@ namespace NagaisoraFramework.STGSystem.ECSystem
 			{
 				if (collision)
 				{
-					component.Action?.Invoke(component.TargetSTGEntitys[i]);
+					component.Action?.Invoke(component.TargetEntitys[i]);
 				}
 
 				i++;
@@ -24,11 +24,11 @@ namespace NagaisoraFramework.STGSystem.ECSystem
 
 		public void SubThreadExecute(CollisionCheck component)
 		{
-			if (component.BaseSTGEntity.Disabled) return;
+			if (component.BaseEntity.Disabled) return;
 
-			for (int i = 0; i < component.TargetSTGEntitys.Count; i++)
+			for (int i = 0; i < component.TargetEntitys.Count; i++)
 			{
-				if (component.m_TargetSTGEntitys[i].Disabled) return;
+				if (component.m_TargetEntitys[i].Disabled) return;
 
 				Transform targetTransform = component.TargetEntityTransforms[i];
 				DetermineData targetDetermineData = component.TargetEntityDetermineDatas[i];

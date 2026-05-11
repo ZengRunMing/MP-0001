@@ -93,6 +93,13 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 		private float m_MaxVelocity;
 		private float m_MinVelocity;
 
+		public MoveControler(ref float minVelocity, ref float maxVelocity, ref float velocity)
+		{
+			MinVelocity = minVelocity;
+			MaxVelocity = maxVelocity;
+			Velocity = velocity;
+		}
+
 		public override Variant _Get(StringName property)
 		{
 			throw new System.NotImplementedException();

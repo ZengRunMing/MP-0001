@@ -6,7 +6,7 @@ using System;
 namespace NagaisoraFramework.STGSystem.ECSComponent
 {
 	[GlobalClass, Tool]
-	public unsafe partial class MoveToPointControler : STGComponent
+	public unsafe partial class MoveToPointControler(Action action) : STGComponent
 	{
 		public Transform Transform;
 		public MoveControler MoveControler;
@@ -18,7 +18,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 
 		public bool OnMoeToPoint;
 
-		public Action Action;
+		public Action Action = action;
 
 		public override Variant _Get(StringName property)
 		{

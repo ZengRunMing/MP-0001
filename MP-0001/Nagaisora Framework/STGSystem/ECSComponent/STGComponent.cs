@@ -5,10 +5,11 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 	using EntityComponentSystem;
 
 	[Tool, GlobalClass]
-	public abstract partial class STGComponent(STGControler controler, STGEntity entity) : Component
+	public abstract partial class STGComponent : Component
 	{
-		public STGControler STGControler { get; set; } = controler;
-		public STGEntity BaseSTGEntity { get; set; } = entity;
+		public STGControler STGControler { get; set; }
+
+		public STGEntity BaseEntity { get; set; }
 
 		public override bool Equals(object obj)
 		{
