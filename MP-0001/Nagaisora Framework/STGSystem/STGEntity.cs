@@ -7,8 +7,6 @@ namespace NagaisoraFramework.STGSystem
 	using EntityComponentSystem;
 	using NagaisoraFramework.STGSystem.ECSComponent;
 
-	using static FrameworkMath;
-
 	/// <summary>
 	/// STG基础实体, 继承自Node3D, 并实现IEntity接口, 由STGControler中的ECS系统管理
 	/// </summary>
@@ -27,7 +25,7 @@ namespace NagaisoraFramework.STGSystem
 		public Guid EUID { get; protected set; }
 
 		/// <summary>
-		/// 实体GUID的字符串表示形式, 以便在编辑器中调试时查看
+		/// 实体GUID的十六进制码以字符串表示形式, 以便在编辑器中调试时查看
 		/// </summary>
 		/// <remarks>
 		/// 该属性是只读的
@@ -140,43 +138,16 @@ namespace NagaisoraFramework.STGSystem
 		{
 			EUID = Guid.NewGuid();
 			ComponentDictionarys = [];
-
-			_ =EUIDString;
-		}
-
-		public override void _PhysicsProcess(double delta)
-		{
-			m_ThisTime++;
-		}
-
-		public virtual void OnEnable()
-		{
-			
-		}
-
-		public virtual void OnDisable()
-		{
-
 		}
 
 		public virtual void Init()
 		{
-			//StartPosition = Position;
+			StartPosition = new(Position.X, Position.Y);
 
 			m_ThisTime = 0;
 
 			Disabled = false;
 		}
-
-		//public virtual void Init(ExecuteSystem system)
-		//{
-		//	ExecuteSystem = system;
-		//}
-
-		//public virtual void Init(Assembly assembly)
-		//{
-		//	Init(new ExecuteSystem(assembly, STGControler, this));
-		//}
 
 		/// <summary>
 		/// 自身的更新方法
@@ -187,14 +158,6 @@ namespace NagaisoraFramework.STGSystem
 		/// </remarks>
 		public virtual void OnUpdate()
 		{
-			OnCondition();
-
-			if (ThisTime < 5)
-			{
-				goto Skip;
-			}
-
-			Skip:
 			m_ThisTime++;
 		}
 
@@ -210,38 +173,6 @@ namespace NagaisoraFramework.STGSystem
 		}
 
 		/// <summary>
-		/// 诱导系统
-		/// </summary>
-		/// <param name="target">指定的STGComponment</param>
-		//public virtual void GuidanceControl(STGEntity target)
-		//{
-		//	if (target == null || target.Disabled)
-		//	{
-		//		return;
-		//	}
-
-		//	float num3 = GetDirection(target);
-		//	float num4 = Mathf.DegToRad(Direction);
-		//	float num5 = num3 - num4;
-		//	if (num5 > (float)Math.PI)
-		//	{
-		//		num5 -= (float)Math.PI * 2f;
-		//	}
-		//	else if (num5 < -(float)Math.PI)
-		//	{
-		//		num5 += (float)Math.PI * 2f;
-		//	}
-		//	if (Mathf.Abs(num5) > 0.02f && GetDistance(target) > 50f)
-		//	{
-		//		Direction += Mathf.RadToDeg(num5 / 5f);
-		//	}
-		//	else
-		//	{
-		//		Direction += Mathf.RadToDeg(num5);
-		//	}
-		//}
-
-		/// <summary>
 		/// 注册Condition
 		/// </summary>
 		/// <param name="Condition">条件</param>
@@ -250,7 +181,7 @@ namespace NagaisoraFramework.STGSystem
 		/// <returns>返回注册的Condition</returns>
 		public Condition RegisterCondition(Func<bool> Condition, Action ExecuteAction, bool LoopExecution = false)
 		{
-			Condition condition = new Condition(Condition, ExecuteAction, LoopExecution);
+			Condition condition = new(Condition, ExecuteAction, LoopExecution);
 			RegisterCondition(condition);
 
 			return condition;
@@ -298,9 +229,10 @@ namespace NagaisoraFramework.STGSystem
 				return;
 			}
 
+			component.STGControler = STGControler;
+			component.BaseEntity = this;
+
 			ComponentDictionarys.Add(component.GetType(), component);
-			component.BaseSTGEntity = this;
-			component.Initialize();
 		}
 
 		public T GetComponent<T>() where T : STGComponent
@@ -322,7 +254,7 @@ namespace NagaisoraFramework.STGSystem
 		{
 			foreach (STGComponent component in Components)
 			{
-				component.BaseSTGEntity = null;
+				component.BaseEntity = null;
 			}
 			Components.Clear();
 		}
@@ -332,10 +264,7 @@ namespace NagaisoraFramework.STGSystem
 		/// </summary>
 		public virtual void BaseDelete()
 		{
-			//Position = STGControler.DisablePosition;
-
-			//UpdateUnityProperty();
-			//ClearUnityPropertyUpdateFlags();
+			Position = new(STGControler.DisablePosition.X, STGControler.DisablePosition.Y, 0);
 
 			Reset();
 			Disabled = true;

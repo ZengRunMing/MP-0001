@@ -40,11 +40,11 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 
 		public string AnimatedSprite3DName = "AnimatedSprite3D";
 
-		public AnimatedSpriteRenderer(STGControler controler, STGEntity entity) : base(controler, entity)
+		public AnimatedSpriteRenderer()
 		{
 			if (AnimatedSprite3D is null)
 			{
-				AnimatedSprite3D = BaseSTGEntity.GetNodeOrNull<AnimatedSprite3D>(AnimatedSprite3DName);
+				AnimatedSprite3D = BaseEntity.GetNodeOrNull<AnimatedSprite3D>(AnimatedSprite3DName);
 
 				if (AnimatedSprite3D is null)
 				{
@@ -54,14 +54,14 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 						Layers = 2
 					};
 
-					BaseSTGEntity.AddChild(AnimatedSprite3D);
+					BaseEntity.AddChild(AnimatedSprite3D);
 				}
 			}
 		}
 
 		public override void Dispose()
 		{
-			BaseSTGEntity.RemoveChild(AnimatedSprite3D);
+			BaseEntity.RemoveChild(AnimatedSprite3D);
 			base.Dispose();
 		}
 
@@ -77,7 +77,19 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 
 		public override Array<Dictionary> _GetPropertyList()
 		{
-			throw new System.NotImplementedException();
+			return
+			[
+				new()
+				{
+					{ "name", nameof(AnimatedSprite3D) },
+					{ "type", (int)Variant.Type.Object },
+				},
+				new()
+				{
+					{ "name", nameof(SpriteFrames) },
+					{ "type", (int)Variant.Type.Object },
+				}
+			];
 		}
 	}
 }

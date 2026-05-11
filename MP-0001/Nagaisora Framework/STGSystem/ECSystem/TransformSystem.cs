@@ -9,9 +9,9 @@ namespace NagaisoraFramework.STGSystem.ECSystem
 	{
 		public void Execute(Transform component)
 		{
-			component.BaseSTGEntity.Position = new(component.Position.X, component.Position.Y, 0);
-			component.BaseSTGEntity.Rotation = component.Rotation;
-			component.BaseSTGEntity.Scale = Vector3.One * component.Scale;
+			component.BaseEntity.Position = new(component.Position.X, component.Position.Y, 0);
+			component.BaseEntity.Rotation = component.Rotation;
+			component.BaseEntity.Scale = Vector3.One * component.Scale;
 		}
 
 		public void SubThreadExecute(Transform component)

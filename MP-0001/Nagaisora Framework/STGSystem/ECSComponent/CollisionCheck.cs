@@ -8,28 +8,28 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 	[GlobalClass, Tool]
 	public partial class CollisionCheck(Action<STGEntity> action) : STGComponent
 	{
-		public new STGEntity BaseSTGEntity
+		public new STGEntity BaseEntity
 		{
-			get => base.BaseSTGEntity;
+			get => base.BaseEntity;
 			set
 			{
-				base.BaseSTGEntity = value;
-				BaseEntityDetermineData = base.BaseSTGEntity.GetComponent<DetermineData>();
-				BaseEntityTransform = base.BaseSTGEntity.GetComponent<Transform>();
+				base.BaseEntity = value;
+				BaseEntityDetermineData = base.BaseEntity.GetComponent<DetermineData>();
+				BaseEntityTransform = base.BaseEntity.GetComponent<Transform>();
 			}
 		}
 
-		public Array<STGEntity> TargetSTGEntitys
+		public Array<STGEntity> TargetEntitys
 		{
-			get => m_TargetSTGEntitys;
+			get => m_TargetEntitys;
 			set
 			{
-				m_TargetSTGEntitys = value;
+				m_TargetEntitys = value;
 
 				TargetEntityDetermineDatas.Clear();
 				TargetEntityTransforms.Clear();
 
-				foreach (STGEntity entity in m_TargetSTGEntitys)
+				foreach (STGEntity entity in m_TargetEntitys)
 				{
 					TargetEntityDetermineDatas.Add(entity.GetComponent<DetermineData>());
 					TargetEntityTransforms.Add(entity.GetComponent<Transform>());
@@ -41,7 +41,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 
 		public Array<bool> IsCollision = [];
 
-		public Array<STGEntity> m_TargetSTGEntitys = [];
+		public Array<STGEntity> m_TargetEntitys = [];
 		
 		public DetermineData BaseEntityDetermineData;
 		public Transform BaseEntityTransform;
@@ -55,7 +55,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 		{
 			return (string)property switch
 			{
-				nameof(TargetSTGEntitys) => (Variant)(TargetSTGEntitys ?? default),
+				nameof(TargetEntitys) => (Variant)(TargetEntitys ?? default),
 				nameof(Scale) => (Variant)Scale,
 				_ => default,
 			};
@@ -65,8 +65,8 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 		{
 			switch (property)
 			{
-				case nameof(TargetSTGEntitys):
-					TargetSTGEntitys = value.AsGodotArray<STGEntity>();
+				case nameof(TargetEntitys):
+					TargetEntitys = value.AsGodotArray<STGEntity>();
 					break;
 				case nameof(Scale):
 					Scale = value.AsBool();
@@ -84,7 +84,7 @@ namespace NagaisoraFramework.STGSystem.ECSComponent
 			[
 				new()
 				{
-					{ "name", nameof(TargetSTGEntitys) },
+					{ "name", nameof(TargetEntitys) },
 					{ "type", (int)Variant.Type.Array },
 				},
 				new()

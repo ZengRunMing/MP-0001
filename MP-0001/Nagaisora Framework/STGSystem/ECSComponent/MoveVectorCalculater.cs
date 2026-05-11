@@ -6,11 +6,11 @@ using System;
 namespace NagaisoraFramework.STGSystem.ECSComponent
 {
 	[GlobalClass, Tool]
-	public partial class MoveVectorCalculater : STGComponent
+	public partial class MoveVectorCalculater(ref float moveDirection) : STGComponent
 	{
 		public MoveControler MoveControler;
 
-		public float MoveDirection;
+		public float MoveDirection = moveDirection;
 
 		public override Variant _Get(StringName property)
 		{
